@@ -1,19 +1,20 @@
 "use client"
 
 import { useState } from "react"
-
+import { Link, useLocation, Outlet } from "react-router-dom";
 const navigation = [
   { name: "Dashboard", href: "/", icon: "📊" },
   { name: "Patients", href: "/patients", icon: "👥" },
   { name: "Food Database", href: "/food-database", icon: "🗄️" },
   { name: "Diet Charts", href: "/diet-charts", icon: "📋" },
   { name: "Recipes", href: "/recipes", icon: "👨‍🍳" },
-  { name: "Settings", href: "/settings", icon: "⚙️" },
+
 ]
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const pathname = window.location.pathname
+  const location = useLocation()
+  const pathname = location.pathname
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -50,7 +51,7 @@ export default function DashboardLayout({ children }) {
       {/* Main content */}
       <div className="md:pl-64">
         <main className="py-6">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><Outlet/></div>
         </main>
       </div>
     </div>
@@ -79,15 +80,15 @@ function SidebarContent({ pathname }) {
                 const isActive = pathname === item.href
                 return (
                   <li key={item.name}>
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className={`group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium transition-colors ${
                         isActive ? "bg-cyan-600 text-white" : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       }`}
                     >
                       <span className="text-lg">{item.icon}</span>
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 )
               })}
@@ -168,9 +169,9 @@ function SidebarContent({ pathname }) {
               </div>
             </div>
 
-            <a href="/patients" className="block mt-3 text-xs text-cyan-600 hover:text-cyan-500 font-medium">
+            <Link to="/patients" className="block mt-3 text-xs text-cyan-600 hover:text-cyan-500 font-medium">
               View all patients →
-            </a>
+            </Link>
           </li>
 
           {/* Recent Diet Charts */}
@@ -268,9 +269,9 @@ function SidebarContent({ pathname }) {
               </div>
             </div>
 
-            <a href="/diet-charts" className="block mt-3 text-xs text-cyan-600 hover:text-cyan-500 font-medium">
+            <Link to="/diet-charts" className="block mt-3 text-xs text-cyan-600 hover:text-cyan-500 font-medium">
               View all diet charts →
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

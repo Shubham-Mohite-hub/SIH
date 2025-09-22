@@ -52,7 +52,7 @@ const mockPatients = [
   },
 ]
 
-export default function PatientsView() {
+export default function Patient() {
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("all")
   const [constitutionFilter, setConstitutionFilter] = useState("all")
@@ -143,11 +143,11 @@ export default function PatientsView() {
       {/* Patients Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filteredPatients.map((patient) => (
-          <div key={patient.id} className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <div key={patient.id} className="bg-purple-200 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="px-6 py-4 border-b border-gray-100">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-600 text-white font-medium">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 text-white font-medium">
                     {getInitials(patient.name)}
                   </div>
                   <div>
@@ -159,7 +159,7 @@ export default function PatientsView() {
                 </div>
                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                   patient.status === "Active" 
-                    ? "bg-cyan-600 text-white" 
+                    ? "bg-purple-600 text-white" 
                     : "bg-gray-100 text-gray-800"
                 }`}>
                   {patient.status}

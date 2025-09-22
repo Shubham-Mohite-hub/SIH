@@ -1,12 +1,28 @@
-import Dashboard from "./Components/Dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./Components/Dashboard"
 import DashboardOverview from "./Components/DashboardOverview";
-import PatientsView from "./Components/Patient";
+ import Patient from "./Components/Patient";
+ import FoodDatabase from "./Components/FoodDatabase";
+ import DietChart from "./Components/DietChart";
+ import Recipies from "./Components/Recipies";
+ import AddRecipe from "./Components/AddRecipe";
+// import Settings from "./Components/Settings"; // create if needed
 
 function App() {
   return (
-    <Dashboard>
-      <DashboardOverview />
-    </Dashboard>
+    <Router>
+      <Routes>
+        
+        <Route path="/" element={<Dashboard />}>
+          <Route index element={<DashboardOverview />} /> {/* default page */}
+           <Route path="/patients" element={<Patient />} />
+           <Route path="/food-database" element={<FoodDatabase />} />
+           <Route path="/diet-charts" element={<DietChart />} />
+           <Route path="/recipes" element={<Recipies />} />
+           <Route path="/recipes/add" element={<AddRecipe />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
