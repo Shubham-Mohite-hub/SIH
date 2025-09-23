@@ -6,6 +6,11 @@ import DashboardOverview from "./Components/DashboardOverview";
  import DietChart from "./Components/DietChart";
  import Recipies from "./Components/Recipies";
  import AddRecipe from "./Components/AddRecipe";
+ import CreateDietChart from "./Components/CreateDietChart";
+ import NewPatient from "./Components/NewPatient";
+ import Agnimeter from "./Components/Agnimeter";
+ import Community from "./Components/Community"
+ 
 // import Settings from "./Components/Settings"; // create if needed
 
 function App() {
@@ -20,6 +25,11 @@ function App() {
            <Route path="/diet-charts" element={<DietChart />} />
            <Route path="/recipes" element={<Recipies />} />
            <Route path="/recipes/add" element={<AddRecipe />} />
+           <Route path="/diet-chart" element={<CreateDietChart />} />
+           <Route path="/add-patient" element={<NewPatient />} />
+           <Route path="/agnimeter" element={<Agnimeter />} />
+           <Route path="/community" element={<Community />} />
+            
         </Route>
       </Routes>
     </Router>

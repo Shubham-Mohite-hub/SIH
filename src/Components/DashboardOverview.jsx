@@ -1,19 +1,54 @@
+import {Link} from "react-router-dom";
 export default function DashboardOverview() {
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600">Welcome to your Ayurvedic Diet Management System</p>
-        </div>
-        <button className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition-colors">
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          New Patient
-        </button>
+         <div>
+        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+        <p className="text-gray-600">
+          Welcome to your Ayurvedic Diet Management System
+        </p>
       </div>
+
+      {/* Right side - Actions */}
+      <div className="flex items-center gap-4">
+        {/* Agnimeter */}
+        <Link
+          to="/agnimeter"
+          className="group relative flex items-center"
+        >
+          <img
+            src="/fire.jpg" // 🔹 replace with your image path
+            alt="Agnimeter"
+            className="w-10 h-10 rounded-full border-2 border-cyan-600 transition-transform duration-200 group-hover:scale-110"
+          />
+          <span className="absolute left-1/2 -translate-x-1/2 mt-12 px-2 py-1 text-xs font-medium bg-gray-800 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity">
+            80%-90%
+          </span>
+        </Link>
+
+        {/* New Patient */}
+        <Link to="/add-patient">
+          <button className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition-colors">
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+            New Patient
+          </button>
+        </Link>
+      </div>
+    </div>
 
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -271,44 +306,48 @@ export default function DashboardOverview() {
   </button>
 
   {/* Create Diet Chart */}
-  <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-green-50 transition-all">
-    <svg
-      className="h-8 w-8 text-green-600"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-      />
-    </svg>
-    <span className="text-sm font-medium text-gray-800">
-      Create Diet Chart
-    </span>
-  </button>
+   <Link to="/community">
+      <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-green-50 transition-all w-full">
+        <svg
+          className="h-8 w-8 text-green-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
+        <span className="text-sm font-medium text-gray-800">
+          Community Engagement
+        </span>
+      </button>
+    </Link>
 
   {/* Browse Food Database */}
-  <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-amber-50 transition-all">
-    <svg
-      className="h-8 w-8 text-amber-600"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
-      />
-    </svg>
-    <span className="text-sm font-medium text-gray-800">
-      Browse Food Database
-    </span>
-  </button>
+  <Link to="/food-database">
+      <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-amber-50 transition-all w-full">
+        <svg
+          className="h-8 w-8 text-amber-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+          />
+        </svg>
+        <span className="text-sm font-medium text-gray-800">
+          Browse Food Database
+        </span>
+      </button>
+    </Link>
 </div>
 
       </div>

@@ -67,7 +67,7 @@ function SidebarContent({ pathname }) {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-600">
             <span className="text-white text-lg">🌿</span>
           </div>
-          <span className="text-lg font-semibold text-gray-900">AyurDiet Pro</span>
+          <span className="text-lg font-semibold text-gray-900">AyurPulse</span>
         </div>
       </div>
 
