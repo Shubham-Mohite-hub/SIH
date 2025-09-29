@@ -281,33 +281,35 @@ export default function DashboardOverview() {
 
       {/* Quick Actions */}
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Actions</h3>
-        <p className="text-sm text-gray-600 mb-4">Common tasks to get you started</p>
+  <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Actions</h3>
+  <p className="text-sm text-gray-600 mb-4">Common tasks to get you started</p>
 
-        <div className="grid gap-6 md:grid-cols-3">
-  {/* Add New Patient */}
-  <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-indigo-50 transition-all">
-    <svg
-      className="h-8 w-8 text-indigo-600"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
-      />
-    </svg>
-    <span className="text-sm font-medium text-gray-800">
-      Add New Patient
-    </span>
-  </button>
+  <div className="grid gap-6 md:grid-cols-3">
+    {/* Add New Patient */}
+    <Link to="/add-patient" className="w-full">
+      <button className="h-28 w-full flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-indigo-50 transition-all">
+        <svg
+          className="h-8 w-8 text-indigo-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+          />
+        </svg>
+        <span className="text-sm font-medium text-gray-800">
+          Add New Patient
+        </span>
+      </button>
+    </Link>
 
-  {/* Create Diet Chart */}
-   <Link to="/community">
-      <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-green-50 transition-all w-full">
+    {/* Community Engagement */}
+    <Link to="/community" className="w-full">
+      <button className="h-28 w-full flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-green-50 transition-all">
         <svg
           className="h-8 w-8 text-green-600"
           fill="none"
@@ -327,9 +329,9 @@ export default function DashboardOverview() {
       </button>
     </Link>
 
-  {/* Browse Food Database */}
-  <Link to="/food-database">
-      <button className="h-28 flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-amber-50 transition-all w-full">
+    {/* Browse Food Database */}
+    <Link to="/food-database" className="w-full">
+      <button className="h-28 w-full flex flex-col items-center justify-center gap-3 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-amber-50 transition-all">
         <svg
           className="h-8 w-8 text-amber-600"
           fill="none"
@@ -348,9 +350,11 @@ export default function DashboardOverview() {
         </span>
       </button>
     </Link>
+  </div>
 </div>
 
+
       </div>
-    </div>
+    
   )
 }

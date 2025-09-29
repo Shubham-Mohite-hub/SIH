@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 // Mock recipes data
 const mockRecipes = [
@@ -95,7 +95,7 @@ const mockRecipes = [
   },
 ]
 
-export default function RecipesView() {
+export default function RecipesViewComponent() {
   const [searchTerm, setSearchTerm] = useState("")
   const [categoryFilter, setCategoryFilter] = useState("all")
   const [cuisineFilter, setCuisineFilter] = useState("all")
@@ -131,12 +131,22 @@ export default function RecipesView() {
             Ayurvedic recipes with detailed nutritional analysis and dosha effects
           </p>
         </div>
-        <Link to="/recipes/add">
-  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
-    <span>+</span>
-    Add Recipe
-  </button>
-</Link>
+        <div className="flex items-center gap-2">
+          {/* existing "Add Recipe" button */}
+          <Link to="/recipes/add">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+              <span>+</span>
+              Add Recipe
+            </button>
+          </Link>
+          {/* new "Create from Diet Chart" button */}
+          <Link to="/recipes/create-from-diet-chart">
+            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+              <span>🧾</span>
+              Create Recipe from your Diet Chart
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Stats Overview */}
@@ -405,3 +415,5 @@ function RecipeGrid({ recipes }) {
     </div>
   )
 }
+
+export { RecipesViewComponent as RecipesView }

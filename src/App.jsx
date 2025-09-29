@@ -9,7 +9,8 @@ import DashboardOverview from "./Components/DashboardOverview";
  import CreateDietChart from "./Components/CreateDietChart";
  import NewPatient from "./Components/NewPatient";
  import Agnimeter from "./Components/Agnimeter";
- import Community from "./Components/Community"
+ import Community from "./Components/Community";
+ import CreateFromDietChart from "./Components/Crete_From_Diet_Chart";
  
 // import Settings from "./Components/Settings"; // create if needed
 
@@ -29,6 +30,7 @@ function App() {
            <Route path="/add-patient" element={<NewPatient />} />
            <Route path="/agnimeter" element={<Agnimeter />} />
            <Route path="/community" element={<Community />} />
+           <Route path="/recipes/create-from-diet-chart" element={< CreateFromDietChart/>} />
             
         </Route>
       </Routes>
